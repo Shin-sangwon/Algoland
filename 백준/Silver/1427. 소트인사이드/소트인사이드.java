@@ -19,7 +19,10 @@ public class Main {
 		
 		Collections.sort(ans, Collections.reverseOrder());
 		
-		for(String x : ans) System.out.print(x);
+		for(String x : ans) bw.write(String.valueOf(x));
+		
+		bw.flush();
+		bw.close();
 		
 	}
 
