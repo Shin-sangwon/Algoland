@@ -3,11 +3,6 @@ import java.io.*;
 
 public class Main {
 	
-	static final int MISSING_NUMBER = 0;
-	static final int BOTTOM_RANK = 6;
-	static final int WINNING_THRESHOLD = 1;
-	static final int DEFAULT_VALUE = 7;
-	
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
