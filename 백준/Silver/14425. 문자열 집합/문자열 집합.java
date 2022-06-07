@@ -10,7 +10,7 @@ public class Main {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st;
 		
-		ArrayList<String> al = new ArrayList<>();
+		HashSet<String> al = new HashSet<>();
 		st = new StringTokenizer(br.readLine());
 		int ans = 0;
 		
