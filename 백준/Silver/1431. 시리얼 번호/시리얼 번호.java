@@ -25,8 +25,8 @@ public class Main {
         return num;
 
     }
-    
-    
+
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -47,8 +47,12 @@ public class Main {
         });
 
         for(String x : arr) {
-            System.out.println(x);
+            bw.write(x+"\n");
         }
+
+        bw.flush();
+        bw.close();
+        br.close();
 
 
 
