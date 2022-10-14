@@ -19,11 +19,9 @@ public class Main {
     static Node[] graph;
 
     static class Node {
-
         int start;
         int end;
         int cost;
-
         public Node(int start, int end, int cost) {
             this.start = start;
             this.end = end;
@@ -36,7 +34,7 @@ public class Main {
 
         dist[1] = 0;
 
-        for(int i = 1; i < n; i++) {
+        for(int i = 1; i <= n; i++) {
             for(int j = 0; j < m; j++) {
                 Node node = graph[j];
                 int start = node.start;
@@ -44,12 +42,17 @@ public class Main {
                 int cost = node.cost;
 
                 if(dist[start] != MAX_VALUE && dist[end] > dist[start] + cost) {
+
+                    if(i == n) {
+                        return true;
+                    }
+
                     dist[end] = dist[start] + cost;
                 }
             }
         }
 
-        for(int i = 0; i < m; i++) {
+/*        for(int i = 0; i < m; i++) {
             Node node = graph[i];
             int start = node.start;
             int end = node.end;
@@ -58,7 +61,7 @@ public class Main {
             if(dist[start] != MAX_VALUE && dist[end] > dist[start] + cost) {
                 return true;
             }
-        }
+        }*/
 
 
         return false;
