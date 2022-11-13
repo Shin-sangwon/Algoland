@@ -26,7 +26,7 @@ public class Main {
 
         for(int i = 0; i < expresion.length(); i++) {
             if(Character.isAlphabetic(expresion.charAt(i))) {
-                stack.push(index[expresion.charAt(i) - 65]);
+                stack.push(index[expresion.charAt(i) - idx]);
                 continue;
             }
 
