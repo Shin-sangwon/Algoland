@@ -13,45 +13,28 @@ public class Main {
     static boolean[] prime;
 
     private static ArrayList<Integer> converter(int now, int k) {
-        // k - 1 자릿수 변환
-        if(k == 0) {
-            ArrayList<Integer> al = new ArrayList<>();
-            for(int i = 1; i <= 9; i++) {
-                int convertingNumber = Integer.parseInt(String.valueOf(i) + String.valueOf(now).substring(1, 4));
-                if(prime[convertingNumber]) continue;
-                al.add(convertingNumber);
-            }
-            return al;
-        }
-
-        if(k == 1) {
-            ArrayList<Integer> al = new ArrayList<>();
-            for(int i = 0; i <= 9; i++) {
-                int convertingNumber = Integer.parseInt(String.valueOf(now / 1000) + i + String.valueOf(now).substring(2, 4));
-                if(prime[convertingNumber]) continue;
-                al.add(convertingNumber);
-            }
-            return al;
-        }
-
-        if(k == 2) {
-            ArrayList<Integer> al = new ArrayList<>();
-            for(int i = 0; i <= 9; i++) {
-                int convertingNumber = Integer.parseInt(String.valueOf(now / 100) + i + String.valueOf(now).charAt(3));
-                if(prime[convertingNumber]) continue;
-                al.add(convertingNumber);
-            }
-            return al;
-        }
-
         ArrayList<Integer> al = new ArrayList<>();
-        for(int i = 0; i <= 9; i++) {
-            int convertingNumber = Integer.parseInt(String.valueOf(now).substring(0, 3) + i);
-            if(prime[convertingNumber]) continue;
-            al.add(convertingNumber);
+        int start = (k == 0) ? 1 : 0;
+        for (int i = start; i <= 9; i++) {
+            StringBuilder sb = new StringBuilder();
+            switch (k) {
+                case 0:
+                    sb.append(i).append(String.valueOf(now).substring(1, 4));
+                    break;
+                case 1:
+                    sb.append(now / 1000).append(i).append(String.valueOf(now).substring(2, 4));
+                    break;
+                case 2:
+                    sb.append(now / 100).append(i).append(String.valueOf(now).charAt(3));
+                    break;
+                default:
+                    sb.append(String.valueOf(now).substring(0, 3)).append(i);
+                    break;
+            }
+            int convertingNumber = Integer.parseInt(sb.toString());
+            if (!prime[convertingNumber]) al.add(convertingNumber);
         }
         return al;
-
     }
 
     public static void main(String[] args) throws IOException {
@@ -99,7 +82,7 @@ public class Main {
                     }
                 }
             }
- 
+
             sb.append(visited[target]-1).append("\n");
         }
 
