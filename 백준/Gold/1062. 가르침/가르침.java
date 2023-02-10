@@ -25,16 +25,16 @@ public class Main {
 
         if(cnt == m - 5) {
             int now = 0;
+            Loop1:
             for(int i = 0; i < n; i++) {
-                boolean flag = true;
+
                 for(int j = 0; j < arr[i].length(); j++) {
                     char tmp = arr[i].charAt(j);
                     if(!pick[tmp - 97]) {
-                        flag = false;
-                        break;
+                        continue Loop1;
                     }
                 }
-                if (flag) now++;
+                now++;
             }
             answer = Math.max(answer, now);
             return;
