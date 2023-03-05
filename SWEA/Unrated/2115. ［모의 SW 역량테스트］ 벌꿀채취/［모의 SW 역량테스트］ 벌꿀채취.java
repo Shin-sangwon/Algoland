@@ -12,10 +12,6 @@ public class Solution {
 
         honey[now] = Math.max(honey[now], honeySum);
 
-        if(cnt == m) {
-            return;
-        }
-
         for(int i = j + 1; i < end; i++) {
             if(rowSum + arr[now][i] <= c) {
                 collect(now, i, end,cnt + 1, rowSum + arr[now][i], honeySum + (int) (Math.pow(arr[now][i], 2)));
