@@ -26,29 +26,29 @@ public class Solution {
             k = Integer.parseInt(st.nextToken());
 
             Queue<String> queue = new LinkedList<>();
-            TreeSet<Integer> answer = new TreeSet<>(Collections.reverseOrder());
+            TreeSet<Integer> set = new TreeSet<>(Collections.reverseOrder());
 
-            StringBuilder tmp = new StringBuilder();
+            StringBuilder password = new StringBuilder();
 
             String[] tokens = br.readLine().split("");
 
             for(String x : tokens) queue.add(x);
 
-            int index = n / 4;
+            int length = n / 4;
 
-            for(int i = 0; i < n + index; i++) {
+            for(int i = 0; i < n + length - 1 ; i++) {
 
-                tmp.append(queue.peek());
+                password.append(queue.peek());
                 queue.add(queue.poll());
 
-                if(tmp.length() == index) {
-                    answer.add(Integer.parseInt(tmp.toString(), 16));
-                    tmp.deleteCharAt(0);
+                if(password.length() == length) {
+                    set.add(Integer.parseInt(password.toString(), 16));
+                    password.deleteCharAt(0);
                 }
 
             }
 
-            ArrayList<Integer> al = new ArrayList<>(answer);
+            ArrayList<Integer> al = new ArrayList<>(set);
             sb.append(String.format("#%d %d\n", printIndex++, al.get(k-1)));
 
         }
