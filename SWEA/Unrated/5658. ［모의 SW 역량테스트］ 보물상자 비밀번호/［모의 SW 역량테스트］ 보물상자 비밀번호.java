@@ -32,7 +32,7 @@ public class Solution {
 
             String[] tokens = br.readLine().split("");
 
-            for(String x : tokens) queue.add(x);
+            Collections.addAll(queue, tokens);
 
             int length = n / 4;
 
